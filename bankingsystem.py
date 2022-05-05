@@ -1,43 +1,53 @@
+
 class User():
-    def __init__(self,name,gender,age):
-        self.name = name
-        self.gender = gender
-        self.age = age
+    def __init__(self):
+        self.name = input("What is your name:")
+        self.gender = input("What is your gender:")
+        self.age = input("What is your age:")
 
-    name = input("What is your name:")
-    gender = input("What is your gender:")
-    age = input("What is your age:")
+    def print_info(self):
+        print("")
+        print("Account Details")
+        print("---------------")
+        print("")
+        print("Name:", self.name)
+        print("Gender:", self.gender)
+        print("Age:", self.age)
+        print("")
+        print("---------------")
 
-    print("")
-    print("Account Details")
-    print("---------------")
-    print("")
-    print("Name:", name)
-    print("Gender:", gender)
-    print("Age:", age)
-    print("")
-    print("---------------")
-    
-
-    
-
-
-
+           
 class Bank(User):
     
-    def __init__(self,name,gender,age):
-        super().__init__(name,gender,age)
+    def __init__(self):
         
+        self.balance = 0
+        
+
+    def deposit(self):
+        self.amount = int(input("How much money do you want to deposit: "))
+        self.balance = 0
+        self.balance += self.amount
+        print("Your current balance is $", self.balance)    
+    
+    def withdraw(self):
+        self.w_amount =int(input("How much do money do you want to withdraw: "))
+
+        if (self.w_amount<= self.balance):
+            self.balance -= self.w_amount
+        else:
+            print("Sorry you don't have enough money to withdraw!!")
+
+        print("your current balance is $", self.balance)
+    
+user1 = User()
+user1.print_info()
+user1 = Bank()
+user1.deposit()
+user1.withdraw()
+
     
 
-    def deposit(self,amount,balance):
-        self.amount = amount
-        self.balance = balance
-
-    amount = int(input("How much money do you want to deposit: "))
-    balance = 0
-    balance += amount
-    print("Your current balance is $", balance)
 
     
 
